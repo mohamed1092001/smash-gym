@@ -11,6 +11,7 @@
     font-family: 'Oxanium', cursive;
     background-color: transparent;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 .flex {
@@ -200,13 +201,13 @@ nav .taps i {
     display: none;
 }
 
-nav .close-taps{
+nav .close-taps {
     position: fixed;
     color: #e01c1f;
     top: 5%;
     right: 5%;
     z-index: 222;
-    font-size: 30px ;
+    font-size: 30px;
     cursor: pointer;
     transform: translateX(200px);
     transition: .4s;
@@ -366,11 +367,13 @@ main .controller-slides .slide-btn.active * {
     background-position: center;
     background-size: cover;
     position: relative;
+    box-shadow: 0px 0px 15px #000;
+    z-index: 2;
 }
 
 .offers::after {
     content: "";
-    background-color: #000000a3;
+    background-color: #00000080;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -387,7 +390,9 @@ h2 {
     z-index: 2;
 }
 
-.offers-con {
+.offers-con,
+.coach-con,
+.top-con {
     gap: 30px;
     position: relative;
     z-index: 23;
@@ -395,7 +400,9 @@ h2 {
     flex-wrap: wrap;
 }
 
-.offers-con .card {
+.offers-con .card,
+.coach-con .card,
+.top-con .card {
     width: calc((100% - 90px) / 4);
     position: relative;
     border-radius: 7px;
@@ -415,7 +422,7 @@ h2 {
 }
 
 .offers-con .card:hover::after {
-    background-color: #000000b0;
+    background-color: #000000c4;
     backdrop-filter: blur(6px);
 }
 
@@ -450,6 +457,12 @@ h2 {
     color: #5c5b5b;
     z-index: 22;
     padding: 10px 15px;
+    transition: .4s;
+}
+
+.offers-con .card:hover .info {
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 10px #1b0000;
 }
 
 .offers-con .card .info .name {
@@ -470,6 +483,73 @@ h2 {
     color: #e01c1f;
 }
 
+
+/* coachs */
+
+.coachs {
+    background-color: #0a0a0a;
+position: relative;
+box-shadow: 0px 0px 10px #000,0px 0px 15px #000,0px 0px 10px #000;
+}
+
+.coach-con .card,
+.top-con .card {
+    padding: 2.3%;
+    background-color: #111010;
+    box-shadow: 3px 3px 10px #000000, -1px 0px 10px #80808034, inset 0px 0px 10px #000000d7;
+}
+
+.coach-con .card img,
+.top-con .card img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 3px 3px 7px #000000, -2px -2px 5px #80808034;
+}
+
+.coach-con .card .coach-info,
+.top-con .card .top-info {
+    margin-top: 10px;
+}
+
+.coach-con .card .coach-info .name,
+.top-con .card .top-info .name {
+    color: #5c5b5b;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.coach-con .card .coach-info a,
+.top-con .card .top-info a {
+    color: #e01c1f;
+    width: 35px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #111010;
+    box-shadow: 3px 3px 10px #000000, -2px -2px 5px #80808034;
+}
+
+.coach-con .card .coach-info a:hover,
+.top-con .card .top-info a:hover {
+    background-color: #0d0d0d;
+}
+
+/* top */
+
+.top {
+    background-color: #5b0608;
+}
+
+.top h2 {
+    color: #fff;
+}
+
+.top-con .card {
+    width: calc((100% - 60px)/3);
+}
 /* res */
 
 @media (min-width : 0px) and (max-width : 600px) {
@@ -477,12 +557,22 @@ h2 {
         width: 100% !important;
         aspect-ratio: 1/1.3;
     }
+
+    .coach-con .card,.top-con .card {
+        width: 100% !important;
+        padding: 6.6%;
+    }
 }
 
 @media (min-width : 601px) and (max-width : 992px) {
     .offers-con .card {
         width: calc((100% - 60px)/2) !important;
         aspect-ratio: 1/1.3;
+    }
+
+    .coach-con .card,.top-con .card {
+        width: calc((100% - 60px)/2) !important;
+        padding: 3.4%;
     }
 }
 
@@ -538,5 +628,5 @@ h2 {
         margin: auto;
         padding: 0px 60px;
     }
-    
+
 }
